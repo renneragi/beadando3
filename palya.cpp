@@ -38,7 +38,7 @@ void Palya::handle(event ev) {
 
 }
 
-const color player_szinek[2] = {color(0,255,255), color(255,128,0)};
+const color player_szinek[2] = {color(255,0, 0), color(0,0,255)};
 
 void Palya::draw() const {
     // TODO palyat kirajzolni, és az eddigi lepeseket (_lepesek) a megfelelõ szinnel

@@ -5,15 +5,15 @@
 #include <iostream>
 using namespace std;
 
-LepesEredmeny JatekMester::lepes(Mezo *mezo){
+LepesEredmeny JatekMester::lepes(Mezo *mezo) {
     for (Mezo *m :_lepesek) {
         if(*m == *mezo) return HIBAS_LEPES;
     }
     // else
-    _lepesek.push_back(mezo);
+    _lepesekByPlayer[mezo->_player].push_back(mezo);
 
     // jatek vege ellenorzes
-    if(_lepesek.size() == _meret * _meret)
+    if(_lepesekByPlayer[0].size() + _lepesekByPlayer[1].size() == _meret * _meret)
         return DONTETLEN;
 
     // itt jon a lenyeg, lett-e most evvel 5 hosszu Vonal
@@ -23,6 +23,9 @@ LepesEredmeny JatekMester::lepes(Mezo *mezo){
     return LEPES_OK;
 }
 
-vector<Mezo*> JatekMester::getLepesek(){
-    return _lepesek;
+vector<Mezo*> JatekMester::getLepesek() {
+    vector<Mezo*> ered;
+    ered.insert(ered.end(), _lepesekByPlayer[0].begin(), _lepesekByPlayer[0].end());
+    ered.insert(ered.end(), _lepesekByPlayer[1].begin(), _lepesekByPlayer[1].end());
+    return ered;
 }

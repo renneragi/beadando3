@@ -30,10 +30,12 @@ class JatekMester {
 private:
     int _meret;
     vector<Mezo*> _lepesek;
+    vector<Mezo*> _lepesekByPlayer[2];
 public:
     JatekMester(int meret) :_meret(meret){};
     LepesEredmeny lepes(Mezo *mezore);
     vector<Mezo*> getLepesek();
+
 };
 
 #endif // JATEKMESTER_HPP_INCLUDED

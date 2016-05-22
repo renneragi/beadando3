@@ -16,7 +16,7 @@ public:
     Palya(PlayWindow& win, int x, int y, int sx, int sy);
     virtual void draw() const ;
     virtual void handle(genv::event ev);
-    virtual bool focusable() const {return true;};
+//    virtual bool focusable() const {return true;};
 
 };
 
